@@ -190,6 +190,45 @@ h1 {
   margin-bottom: 0.35rem;
 }
 
+.culture-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-top: 0.7rem;
+}
+
+.culture-card {
+  background: #ffffff;
+  border: 1px solid #d9dee4;
+  border-top: 5px solid var(--red);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 0.9rem;
+}
+
+.culture-card h3 {
+  margin-bottom: 0.35rem;
+  font-size: 1.04rem;
+}
+
+.culture-question {
+  margin-top: 0.55rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 8px;
+  border: 1px solid #dbe2ea;
+  background: #f6f8fb;
+}
+
+.culture-closing {
+  margin-top: 0.8rem;
+  padding: 0.62rem 0.72rem;
+  border-left: 5px solid #1f2429;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: var(--shadow);
+  font-weight: 700;
+}
+
 .function-card {
   background: #fff;
   border: 1px solid #dce0e5;
@@ -540,6 +579,10 @@ th {
   }
 
   .aicle-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .culture-grid {
     grid-template-columns: 1fr;
   }
 

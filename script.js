@@ -145,6 +145,49 @@ function pointsFrom(xs, fn) {
   return xs.map((x) => ({ x: x, y: fn(x) }));
 }
 
+function point(x, y) {
+  return { x: x, y: y };
+}
+
+const emphasizedAxesPlugin = {
+  id: 'emphasizedAxesPlugin',
+  afterDraw(chart) {
+    const xScale = chart.scales.x;
+    const yScale = chart.scales.y;
+
+    if (!xScale || !yScale) return;
+
+    const hasZeroX = yScale.min <= 0 && yScale.max >= 0;
+    const hasZeroY = xScale.min <= 0 && xScale.max >= 0;
+    const axisColor = '#111827';
+    const ctx = chart.ctx;
+
+    ctx.save();
+
+    if (hasZeroX) {
+      const yZero = yScale.getPixelForValue(0);
+      ctx.beginPath();
+      ctx.moveTo(xScale.left, yZero);
+      ctx.lineTo(xScale.right, yZero);
+      ctx.lineWidth = 2.8;
+      ctx.strokeStyle = axisColor;
+      ctx.stroke();
+    }
+
+    if (hasZeroY) {
+      const xZero = xScale.getPixelForValue(0);
+      ctx.beginPath();
+      ctx.moveTo(xZero, yScale.top);
+      ctx.lineTo(xZero, yScale.bottom);
+      ctx.lineWidth = 2.8;
+      ctx.strokeStyle = axisColor;
+      ctx.stroke();
+    }
+
+    ctx.restore();
+  }
+};
+
 function createLinearChart(canvasId, datasets, xMin, xMax, yMin, yMax) {
   const canvas = document.getElementById(canvasId);
   if (!canvas || typeof Chart === 'undefined') return;
@@ -158,6 +201,7 @@ function createLinearChart(canvasId, datasets, xMin, xMax, yMin, yMax) {
       aspectRatio: 2.4,
       animation: false,
       plugins: {
+        emphasizedAxesPlugin: true,
         legend: { display: false },
         tooltip: { enabled: true }
       },
@@ -171,7 +215,7 @@ function createLinearChart(canvasId, datasets, xMin, xMax, yMin, yMax) {
           border: { color: '#1f2429', width: 2 },
           title: {
             display: true,
-            text: 'x',
+            text: 'Eje de abscisas (x)',
             color: '#1f2429',
             font: { weight: 'bold' }
           }
@@ -184,7 +228,7 @@ function createLinearChart(canvasId, datasets, xMin, xMax, yMin, yMax) {
           border: { color: '#1f2429', width: 2 },
           title: {
             display: true,
-            text: 'y',
+            text: 'Eje de ordenadas (y)',
             color: '#1f2429',
             font: { weight: 'bold' }
           }
@@ -201,16 +245,47 @@ function createLinearChart(canvasId, datasets, xMin, xMax, yMin, yMax) {
 function renderFunctionCharts() {
   if (typeof Chart === 'undefined') return;
 
-  const piecewiseX = createRange(-6, 6, 0.2);
-  const piecewisePoints = pointsFrom(piecewiseX, (x) => (x < 0 ? x + 1 : x * x));
+  Chart.register(emphasizedAxesPlugin);
+
+  const piecewiseLeftX = createRange(-6, -0.2, 0.2);
+  const piecewiseRightX = createRange(0, 6, 0.2);
+  const piecewiseLeft = pointsFrom(piecewiseLeftX, (x) => x + 1);
+  const piecewiseRight = pointsFrom(piecewiseRightX, (x) => x * x);
+
   createLinearChart(
     'chart-piecewise',
-    [{
-      data: piecewisePoints,
-      showLine: true,
-      borderColor: '#b6242c',
-      backgroundColor: '#b6242c'
-    }],
+    [
+      {
+        data: piecewiseLeft,
+        showLine: true,
+        borderColor: '#b6242c',
+        backgroundColor: '#b6242c'
+      },
+      {
+        data: piecewiseRight,
+        showLine: true,
+        borderColor: '#b6242c',
+        backgroundColor: '#b6242c'
+      },
+      {
+        data: [point(0, 1)],
+        showLine: false,
+        pointRadius: 5,
+        pointHoverRadius: 6,
+        pointBackgroundColor: '#ffffff',
+        pointBorderColor: '#b6242c',
+        pointBorderWidth: 2
+      },
+      {
+        data: [point(0, 0)],
+        showLine: false,
+        pointRadius: 5,
+        pointHoverRadius: 6,
+        pointBackgroundColor: '#b6242c',
+        pointBorderColor: '#b6242c',
+        pointBorderWidth: 2
+      }
+    ],
     -6,
     6,
     -6,
@@ -224,8 +299,8 @@ function renderFunctionCharts() {
     [{
       data: absolutePoints,
       showLine: true,
-      borderColor: '#1f2429',
-      backgroundColor: '#1f2429'
+      borderColor: '#b45309',
+      backgroundColor: '#b45309'
     }],
     -8,
     8,
