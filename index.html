@@ -3,6 +3,371 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Representacion de funciones - 4 ESO CLIL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="eyebrow">4 ESO Matematicas B · CLIL / AICLE</p>
+      <h1>Representacion de funciones: think, speak and justify</h1>
+      <p class="subtitle">Less reading, more doing. Use English to observe, describe and explain graphs.</p>
+      <nav class="quick-nav" aria-label="Navegacion principal">
+        <a href="#intro">1. Introduction</a>
+        <a href="#vocabulary">2. Key Vocabulary</a>
+        <a href="#observe">3. Observe and Describe</a>
+        <a href="#match">4. Match</a>
+        <a href="#reallife">5. Real-life functions</a>
+        <a href="#justify">6. Think and justify</a>
+        <a href="#challenge">7. Final challenge</a>
+        <a href="#assessment">8. Self-assessment</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="intro" class="section container">
+      <h2>1. Introduction</h2>
+      <div class="panel-grid">
+        <article class="panel">
+          <h3>Learning mission</h3>
+          <p>Interpret, compare and represent functions from graphs, formulas and real situations.</p>
+        </article>
+        <article class="panel">
+          <h3>Language mission</h3>
+          <p>Use English to describe behavior: increasing, decreasing, maximum, intercepts, continuity.</p>
+        </article>
+        <article class="panel">
+          <h3>How you will work</h3>
+          <p>Observe, match, check, justify, try again and improve with immediate feedback.</p>
+        </article>
+      </div>
+      <div class="starter-box">
+        <p><strong>Math focus:</strong> \(y=f(x)\), domain, range, intercepts, variation and continuity.</p>
+        <a class="action-link" href="#observe">Start activity flow</a>
+      </div>
+      <div class="back-top-wrap">
+        <a class="back-top-btn" href="#top">Volver al principio</a>
+      </div>
+    </section>
+
+    <section id="vocabulary" class="section section-alt">
+      <div class="container">
+        <h2>2. Key Vocabulary</h2>
+        <p class="short-help">Tap each card, then complete one sentence using the starters.</p>
+        <div class="vocab-grid">
+          <button class="vocab-card" type="button" data-term="increasing" data-def="The graph goes up when x increases.">
+            <span class="term">increasing</span>
+            <span class="def" aria-hidden="true">The graph goes up when x increases.</span>
+          </button>
+          <button class="vocab-card" type="button" data-term="decreasing" data-def="The graph goes down when x increases.">
+            <span class="term">decreasing</span>
+            <span class="def" aria-hidden="true">The graph goes down when x increases.</span>
+          </button>
+          <button class="vocab-card" type="button" data-term="x-intercept" data-def="Point where the graph cuts the x-axis.">
+            <span class="term">x-intercept</span>
+            <span class="def" aria-hidden="true">Point where the graph cuts the x-axis.</span>
+          </button>
+          <button class="vocab-card" type="button" data-term="maximum" data-def="Highest point of the graph in an interval.">
+            <span class="term">maximum</span>
+            <span class="def" aria-hidden="true">Highest point of the graph in an interval.</span>
+          </button>
+          <button class="vocab-card" type="button" data-term="continuous" data-def="You can draw it without lifting your pencil.">
+            <span class="term">continuous</span>
+            <span class="def" aria-hidden="true">You can draw it without lifting your pencil.</span>
+          </button>
+          <button class="vocab-card" type="button" data-term="discontinuous" data-def="The graph has a jump, hole or break.">
+            <span class="term">discontinuous</span>
+            <span class="def" aria-hidden="true">The graph has a jump, hole or break.</span>
+          </button>
+        </div>
+
+        <div class="language-box">
+          <h3>Sentence starters</h3>
+          <div class="starters" id="starter-chips">
+            <button type="button" data-starter="The function is increasing when...">The function is increasing when...</button>
+            <button type="button" data-starter="The maximum point is...">The maximum point is...</button>
+            <button type="button" data-starter="The graph cuts the x-axis at...">The graph cuts the x-axis at...</button>
+            <button type="button" data-starter="This function is continuous/discontinuous because...">This function is continuous/discontinuous because...</button>
+          </div>
+          <textarea id="starter-output" rows="3" placeholder="Write one sentence in English..."></textarea>
+        </div>
+        <div class="back-top-wrap">
+          <a class="back-top-btn" href="#top">Volver al principio</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="observe" class="section container">
+      <h2>3. Observe and Describe (LOTS + Communication)</h2>
+      <div class="activity-card">
+        <div class="activity-top">
+          <div>
+            <h3 id="observe-title">Graph 1</h3>
+            <p id="observe-formula" class="mini-formula"></p>
+          </div>
+          <p class="level-tag">LOTS: identify and label</p>
+        </div>
+
+        <div class="observe-layout">
+          <div class="chart-wrap">
+            <canvas id="observe-chart" aria-label="Observe and describe chart"></canvas>
+          </div>
+          <div class="task-wrap">
+            <p>Select all correct statements:</p>
+            <div id="observe-options" class="option-list"></div>
+
+            <label for="observe-text" class="field-label">Write a short description in English:</label>
+            <textarea id="observe-text" rows="4" placeholder="Use one sentence starter and justify your idea."></textarea>
+
+            <div class="btn-row">
+              <button id="observe-hint" type="button" class="btn secondary">Show hint</button>
+              <button id="observe-check" type="button" class="btn primary">Check</button>
+              <button id="observe-reset" type="button" class="btn secondary">Reset</button>
+              <button id="observe-try" type="button" class="btn secondary">Try again</button>
+              <button id="observe-next" type="button" class="btn primary">Next</button>
+            </div>
+            <p id="observe-feedback" class="feedback" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-top">
+          <h3>Interactive parameters</h3>
+          <p class="level-tag">LOTS -> HOTS: observe patterns and predict changes</p>
+        </div>
+        <p>Move the sliders in \(f(x)=a|x-h|+k\). Then explain in English what changes and why.</p>
+        <p id="slider-formula" class="mini-formula slider-formula">\(f(x)=|x|\)</p>
+        <div class="slider-grid">
+          <label>a
+            <input type="range" id="slider-a" min="-3" max="3" step="0.5" value="1" />
+            <span id="value-a">1</span>
+          </label>
+          <label>h
+            <input type="range" id="slider-h" min="-4" max="4" step="0.5" value="0" />
+            <span id="value-h">0</span>
+          </label>
+          <label>k
+            <input type="range" id="slider-k" min="-4" max="4" step="0.5" value="0" />
+            <span id="value-k">0</span>
+          </label>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="slider-chart" aria-label="Dynamic absolute value graph"></canvas>
+        </div>
+      </div>
+      <div class="back-top-wrap">
+        <a class="back-top-btn" href="#top">Volver al principio</a>
+      </div>
+    </section>
+
+    <section id="match" class="section section-alt">
+      <div class="container">
+        <h2>4. Match graph and description (LOTS)</h2>
+        <p class="short-help">Drag each description to the correct graph card.</p>
+
+        <div class="match-board">
+          <div class="desc-bank" id="desc-bank" aria-label="Description bank">
+            <article class="draggable" draggable="true" data-id="desc-abs">V-shape, vertex at one point, symmetric graph.</article>
+            <article class="draggable" draggable="true" data-id="desc-exp">Always positive, grows faster and faster.</article>
+            <article class="draggable" draggable="true" data-id="desc-inv">Two branches and one vertical asymptote.</article>
+          </div>
+
+          <div class="drop-grid">
+            <article class="drop-card" data-target="desc-abs">
+              <h3>Graph A</h3>
+              <canvas id="match-chart-a" aria-label="Graph A"></canvas>
+              <div class="dropzone" data-zone="a">Drop description here</div>
+            </article>
+            <article class="drop-card" data-target="desc-exp">
+              <h3>Graph B</h3>
+              <canvas id="match-chart-b" aria-label="Graph B"></canvas>
+              <div class="dropzone" data-zone="b">Drop description here</div>
+            </article>
+            <article class="drop-card" data-target="desc-inv">
+              <h3>Graph C</h3>
+              <canvas id="match-chart-c" aria-label="Graph C"></canvas>
+              <div class="dropzone" data-zone="c">Drop description here</div>
+            </article>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button id="match-hint" type="button" class="btn secondary">Show hint</button>
+          <button id="match-check" type="button" class="btn primary">Check</button>
+          <button id="match-reset" type="button" class="btn secondary">Reset</button>
+          <button id="match-try" type="button" class="btn secondary">Try again</button>
+        </div>
+        <p id="match-feedback" class="feedback" aria-live="polite"></p>
+        <div class="back-top-wrap">
+          <a class="back-top-btn" href="#top">Volver al principio</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="reallife" class="section container">
+      <h2>5. Real-life functions (Culture + Content)</h2>
+      <p class="short-help">Choose the most suitable model for each situation.</p>
+      <div id="real-grid" class="real-grid"></div>
+      <div class="btn-row">
+        <button id="real-check" type="button" class="btn primary">Check</button>
+        <button id="real-reset" type="button" class="btn secondary">Reset</button>
+      </div>
+      <p id="real-feedback" class="feedback" aria-live="polite"></p>
+      <div class="back-top-wrap">
+        <a class="back-top-btn" href="#top">Volver al principio</a>
+      </div>
+    </section>
+
+    <section id="justify" class="section section-alt">
+      <div class="container">
+        <h2>6. Think and justify (HOTS)</h2>
+        <div class="activity-card">
+          <div class="activity-top">
+            <h3>Explain, justify, compare and predict</h3>
+            <p class="level-tag">HOTS</p>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="hots-chart" aria-label="HOTS chart"></canvas>
+          </div>
+
+          <div class="hints-box">
+            <p><strong>Language support:</strong></p>
+            <ul>
+              <li>"I think the function is discontinuous at x = ... because ..."</li>
+              <li>"Compared with ..., this graph ..."</li>
+              <li>"If parameter a increases, then ..."</li>
+            </ul>
+          </div>
+
+          <div class="question-grid">
+            <label>1) Is it continuous at x = 0?
+              <select id="hots-q1">
+                <option value="">Choose</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </label>
+            <label>2) Predict what happens if we add +2 to all y values.
+              <select id="hots-q2">
+                <option value="">Choose</option>
+                <option value="up">The whole graph moves up</option>
+                <option value="down">The whole graph moves down</option>
+                <option value="same">Nothing changes</option>
+              </select>
+            </label>
+            <label for="hots-text">3) Justify in English (2-4 lines):</label>
+            <textarea id="hots-text" rows="4" placeholder="Use one sentence starter and include because..."></textarea>
+          </div>
+
+          <div class="btn-row">
+            <button id="hots-hint" type="button" class="btn secondary">Show hint</button>
+            <button id="hots-check" type="button" class="btn primary">Check</button>
+            <button id="hots-reset" type="button" class="btn secondary">Reset</button>
+            <button id="hots-try" type="button" class="btn secondary">Try again</button>
+          </div>
+          <p id="hots-feedback" class="feedback" aria-live="polite"></p>
+        </div>
+        <div class="back-top-wrap">
+          <a class="back-top-btn" href="#top">Volver al principio</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="challenge" class="section container">
+      <h2>7. Final challenge (Create + Explain)</h2>
+      <div class="activity-card">
+        <div class="activity-top">
+          <h3>Full interpretation task</h3>
+          <p class="level-tag">Integrate Content + Communication + Cognition + Culture</p>
+        </div>
+        <p class="short-help">Context: distance traveled by a student during a bike trip and a final sprint.</p>
+        <div class="chart-wrap">
+          <canvas id="final-chart" aria-label="Final challenge chart"></canvas>
+        </div>
+
+        <div class="final-grid">
+          <label>Domain
+            <input id="final-domain" type="text" placeholder="Example: x >= 0" />
+          </label>
+          <label>Where is it increasing?
+            <input id="final-increasing" type="text" placeholder="Example: in all the shown interval" />
+          </label>
+          <label>x-intercept (if any)
+            <input id="final-intercept" type="text" placeholder="Example: x = 0" />
+          </label>
+          <label>Continuity
+            <select id="final-continuity">
+              <option value="">Choose</option>
+              <option value="continuous">Continuous</option>
+              <option value="discontinuous">Discontinuous</option>
+            </select>
+          </label>
+          <label class="full">Explain the graph in English (3-5 lines)
+            <textarea id="final-text" rows="5" placeholder="Describe behavior and justify with evidence from the graph."></textarea>
+          </label>
+        </div>
+
+        <div class="btn-row">
+          <button id="final-hint" type="button" class="btn secondary">Show hint</button>
+          <button id="final-check" type="button" class="btn primary">Check</button>
+          <button id="final-reset" type="button" class="btn secondary">Reset</button>
+          <button id="final-try" type="button" class="btn secondary">Try again</button>
+        </div>
+        <p id="final-feedback" class="feedback" aria-live="polite"></p>
+      </div>
+      <div class="back-top-wrap">
+        <a class="back-top-btn" href="#top">Volver al principio</a>
+      </div>
+    </section>
+
+    <section id="assessment" class="section section-alt">
+      <div class="container">
+        <h2>8. Self-assessment</h2>
+        <p class="short-help">Quick mini quiz for exit ticket in class.</p>
+        <div id="quiz-wrap" class="quiz-wrap"></div>
+        <div class="btn-row">
+          <button id="quiz-check" type="button" class="btn primary">Check</button>
+          <button id="quiz-reset" type="button" class="btn secondary">Reset</button>
+        </div>
+        <p id="quiz-feedback" class="feedback" aria-live="polite"></p>
+        <div class="back-top-wrap">
+          <a class="back-top-btn" href="#top">Volver al principio</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>CLIL functions resource for 4 ESO. Built for active learning, communication and reasoning.</p>
+    <a class="action-link" href="#top">Back to top</a>
+  </footer>
+</body>
+</html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Funciones elementales - 4 ESO Matematicas B</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
