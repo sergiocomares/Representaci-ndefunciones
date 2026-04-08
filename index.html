@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Funciones elementales - 4 ESO Matematicas B</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+  <header class="hero" id="inicio">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="tag">Matematicas B - 4 de ESO | CLIL / AICLE</p>
+      <h1>Funciones elementales - 4º ESO Matematicas B</h1>
+      <p class="subtitle">Recurso interactivo con enfoque AICLE</p>
+      <nav class="quick-nav" aria-label="Navegacion principal">
+        <a href="#que-es">Que es una funcion</a>
+        <a href="#vocabulario">Vocabulary</a>
+        <a href="#aicle">4Cs AICLE</a>
+        <a href="#funciones">Funciones elementales</a>
+        <a href="#andamiaje">Scaffolding</a>
+        <a href="#resumen">Resumen</a>
+        <a href="#actividad">Actividad</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="que-es" class="section container">
+      <h2>Que es una funcion</h2>
+      <p>
+        Una funcion relaciona cada valor de entrada con un unico valor de salida.
+        En lenguaje matematico: a cada \(x\) del dominio le corresponde un solo \(f(x)\).
+      </p>
+      <div class="intro-grid">
+        <article class="card">
+          <h3>Idea clave</h3>
+          <p>
+            Una funcion es como una "maquina": entra \(x\), se aplica una regla y sale \(y\).
+          </p>
+          <p class="formula">\[ y = f(x) \]</p>
+        </article>
+        <article class="card clil-box">
+          <h3>AICLE - English support</h3>
+          <p><strong>Function:</strong> A rule that assigns one output to each input.</p>
+          <p><strong>Graph:</strong> Visual representation of a function.</p>
+          <p><strong>Domain and range:</strong> Possible inputs and outputs.</p>
+        </article>
+      </div>
+      <div class="back-top-wrap">
+        <a class="back-top-btn" href="#inicio">Volver al inicio</a>
+      </div>
+    </section>
+
+    <section id="vocabulario" class="section section-alt">
+      <div class="container">
+        <h2>Vocabulario AICLE (CLIL Vocabulary)</h2>
+        <div class="vocab-grid">
+          <article class="vocab-card"><h3>function</h3><p>funcion</p></article>
+          <article class="vocab-card"><h3>graph</h3><p>grafica</p></article>
+          <article class="vocab-card"><h3>domain</h3><p>dominio</p></article>
+          <article class="vocab-card"><h3>range</h3><p>recorrido</p></article>
+          <article class="vocab-card"><h3>increasing</h3><p>creciente</p></article>
+          <article class="vocab-card"><h3>decreasing</h3><p>decreciente</p></article>
+          <article class="vocab-card"><h3>asymptote</h3><p>asintota</p></article>
+          <article class="vocab-card"><h3>piecewise function</h3><p>funcion a trozos</p></article>
+          <article class="vocab-card"><h3>square root function</h3><p>funcion radical</p></article>
+          <article class="vocab-card"><h3>exponential function</h3><p>funcion exponencial</p></article>
+          <article class="vocab-card"><h3>logarithmic function</h3><p>funcion logaritmica</p></article>
+        </div>
+        <div class="back-top-wrap">
+          <a class="back-top-btn" href="#inicio">Volver al inicio</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="aicle" class="section container">
+      <h2>Fundamentos AICLE aplicados (4Cs)</h2>
+      <p>
+        Este recurso sigue el doble enfoque AICLE: aprender contenido matematico usando la L2 y aprender L2 para comunicar matematicas.
+      </p>
+      <div class="aicle-grid">
+        <article class="pillar-card">
+          <h3>1. Content</h3>
+          <p><strong>Que aprendemos:</strong> tipos de funciones, dominio, recorrido, asintotas y comportamiento grafico.</p>
+          <p><strong>Pregunta clave:</strong> Que sabe matematicamente el alumnado al final de la secuencia?</p>
+        </article>
+        <article class="pillar-card">
+          <h3>2. Communication</h3>
+          <p><strong>Language of learning:</strong> function, domain, range, increasing, decreasing, asymptote.</p>
+          <p><strong>Language for learning:</strong> <em>I think..., because..., The domain is..., This graph is...</em></p>
+        </article>
+        <article class="pillar-card">
+          <h3>3. Cognition</h3>
+          <p><strong>LOTS:</strong> identificar, clasificar, describir.</p>
+          <p><strong>HOTS:</strong> analizar, justificar, predecir y comparar funciones en contextos reales.</p>
+        </article>
+        <article class="pillar-card">
+          <h3>4. Culture</h3>
+          <p>
+            Conectamos funciones con situaciones reales y globales: crecimiento de poblacion, consumo de recursos y cambios ambientales.
+          </p>
+        </article>
+      </div>
+      <div class="back-top-wrap">
+        <a class="back-top-btn" href="#inicio">Volver al inicio</a>
+      </div>
+    </section>
+
+    <section id="funciones" class="section container">
+      <h2>Funciones elementales</h2>
+
+      <article class="function-card" id="piecewise">
+        <h3>1. Funciones definidas a trozos (Piecewise Function)</h3>
+        <p><strong>Definicion:</strong> Se definen con reglas distintas segun el valor de \(x\).</p>
+        <p><strong>Expresion general:</strong></p>
+        <p class="formula">
+          \[
+          f(x)=
+          \begin{cases}
+          f_1(x), & x \in I_1 \\
+          f_2(x), & x \in I_2
+          \end{cases}
+          \]
+        </p>
+        <ul>
+          <li><strong>Caracteristicas:</strong> puede presentar continuidad o discontinuidad en los puntos de cambio.</li>
+          <li><strong>Descripcion de la grafica:</strong> aparece como union de tramos, con puntos abiertos o cerrados.</li>
+        </ul>
+        <p><strong>Ejemplo:</strong> \(f(x)=\begin{cases}x+1,&x&lt;0\\x^2,&x\ge 0\end{cases}\)</p>
+        <p class="meta-line"><strong>Language for learning:</strong> <em>This function changes its rule when \(x\) changes interval.</em></p>
+        <p class="meta-line"><strong>Cognition (HOTS):</strong> Justifica si esta funcion es continua en \(x=0\).</p>
+        <div class="chart-card">
+          <h4>Grafica real</h4>
+          <canvas id="chart-piecewise" aria-label="Grafica de funcion definida a trozos"></canvas>
+        </div>
+        <p class="clil-line">AICLE: This is a piecewise function with two different rules.</p>
+      </article>
+
+      <article class="function-card" id="absolute">
+        <h3>2. Valor absoluto (Absolute Value Function)</h3>
+        <p><strong>Definicion:</strong> El valor absoluto mide la distancia de un numero al \(0\).</p>
+        <p><strong>Expresion general:</strong> \(f(x)=|x-a|+b\)</p>
+        <ul>
+          <li><strong>Caracteristicas:</strong> siempre devuelve valores no negativos antes de la traslacion vertical.</li>
+          <li><strong>Descripcion de la grafica:</strong> forma de V, con vertice en \((a,b)\).</li>
+        </ul>
+        <p><strong>Ejemplo:</strong> \(f(x)=|x-2|+1\)</p>
+        <p class="meta-line"><strong>Language for learning:</strong> <em>In my opinion, the vertex is at...</em></p>
+        <p class="meta-line"><strong>LOTS:</strong> Identifica el vertice y el eje de simetria.</p>
+        <div class="chart-card">
+          <h4>Grafica real</h4>
+          <canvas id="chart-absolute" aria-label="Grafica de funcion de valor absoluto"></canvas>
+        </div>
+        <p class="clil-line">AICLE: This graph is V-shaped and symmetric.</p>
+      </article>
+
+      <article class="function-card" id="radical">
+        <h3>3. Funciones radicales (Square Root Function)</h3>
+        <p><strong>Definicion:</strong> Incluyen una raiz cuadrada y solo existen cuando el radicando es no negativo.</p>
+        <p><strong>Expresion general:</strong> \(f(x)=\sqrt{x-a}+b\)</p>
+        <ul>
+          <li><strong>Caracteristicas:</strong> el dominio cumple \(x\ge a\).</li>
+          <li><strong>Descripcion de la grafica:</strong> empieza en un punto y crece de forma suave.</li>
+        </ul>
+        <p><strong>Ejemplo:</strong> \(f(x)=\sqrt{x-3}\)</p>
+        <p class="meta-line"><strong>Language for learning:</strong> <em>The domain of this function is...</em></p>
+        <p class="meta-line"><strong>Cognition (HOTS):</strong> Predice como cambia la grafica si pasamos a \(\sqrt{x-3}+2\).</p>
+        <div class="chart-card">
+          <h4>Grafica real</h4>
+          <canvas id="chart-radical" aria-label="Grafica de funcion radical"></canvas>
+        </div>
+        <p class="clil-line">AICLE: The domain of this function is \(x\ge 3\).</p>
+      </article>
+
+      <article class="function-card" id="inverse">
+        <h3>4. Funciones de proporcionalidad inversa (Inverse Proportional Function)</h3>
+        <p><strong>Definicion:</strong> La variable \(y\) es inversamente proporcional a \(x\).</p>
+        <p><strong>Expresion general:</strong> \(f(x)=\dfrac{k}{x-a}+b\)</p>
+        <ul>
+          <li><strong>Caracteristicas:</strong> tiene asintota vertical \(x=a\) y horizontal \(y=b\).</li>
+          <li><strong>Descripcion de la grafica:</strong> hiperbola con dos ramas separadas por las asintotas.</li>
+        </ul>
+        <p><strong>Ejemplo:</strong> \(f(x)=\dfrac{2}{x-1}\)</p>
+        <p class="meta-line"><strong>Language for learning:</strong> <em>This graph has a vertical asymptote at...</em></p>
+        <p class="meta-line"><strong>Cultura:</strong> Relaciona este modelo con intensidad de luz o concentracion segun distancia.</p>
+        <div class="chart-card">
+          <h4>Grafica real</h4>
+          <canvas id="chart-inverse" aria-label="Grafica de funcion de proporcionalidad inversa"></canvas>
+        </div>
+        <p class="clil-line">AICLE: This graph has a vertical asymptote.</p>
+      </article>
+
+      <article class="function-card" id="exponential">
+        <h3>5. Funciones exponenciales (Exponential Function)</h3>
+        <p><strong>Definicion:</strong> La variable aparece en el exponente.</p>
+        <p><strong>Expresion general:</strong> \(f(x)=a^x\), con \(a&gt;0\) y \(a\neq 1\).</p>
+        <ul>
+          <li><strong>Caracteristicas:</strong> si \(a&gt;1\) es creciente; si \(0&lt;a&lt;1\) es decreciente.</li>
+          <li><strong>Descripcion de la grafica:</strong> corta el eje \(y\) en \((0,1)\) y tiene asintota horizontal \(y=0\).</li>
+        </ul>
+        <p><strong>Ejemplo:</strong> \(f(x)=2^x\)</p>
+        <p class="meta-line"><strong>Language for learning:</strong> <em>I think this function is increasing because...</em></p>
+        <p class="meta-line"><strong>Cultura:</strong> Compara crecimiento poblacional en dos paises con distinta tasa de crecimiento.</p>
+        <div class="chart-card">
+          <h4>Grafica real</h4>
+          <canvas id="chart-exponential" aria-label="Grafica de funcion exponencial"></canvas>
+        </div>
+        <p class="clil-line">AICLE: This function is increasing because \(a&gt;1\).</p>
+      </article>
+
+      <article class="function-card" id="logarithmic">
+        <h3>6. Funciones logaritmicas (Logarithmic Function)</h3>
+        <p><strong>Definicion:</strong> Es la funcion inversa de la exponencial.</p>
+        <p><strong>Expresion general:</strong> \(f(x)=\log_a(x)\), con \(a&gt;0\) y \(a\neq 1\).</p>
+        <ul>
+          <li><strong>Caracteristicas:</strong> dominio \(x&gt;0\), asintota vertical \(x=0\).</li>
+          <li><strong>Descripcion de la grafica:</strong> pasa por \((1,0)\) y crece si \(a&gt;1\).</li>
+        </ul>
+        <p><strong>Ejemplo:</strong> \(f(x)=\log_2(x)\)</p>
+        <p class="meta-line"><strong>Language for learning:</strong> <em>First, identify the domain. Then, describe the asymptote.</em></p>
+        <p class="meta-line"><strong>Cognition (HOTS):</strong> Explica por que es la inversa de la exponencial \(2^x\).</p>
+        <div class="chart-card">
+          <h4>Grafica real</h4>
+          <canvas id="chart-logarithmic" aria-label="Grafica de funcion logaritmica"></canvas>
+        </div>
+        <p class="clil-line">AICLE: The graph is increasing for base greater than one.</p>
+      </article>
+
+      <div class="back-top-wrap">
+        <a class="back-top-btn" href="#inicio">Volver al inicio</a>
+      </div>
+    </section>
+
+    <section id="andamiaje" class="section section-alt">
+      <div class="container">
+        <h2>Andamiaje (Scaffolding) en esta propuesta</h2>
+        <div class="scaffold-grid">
+          <article class="scaffold-card">
+            <h3>Input scaffolding</h3>
+            <p>Glosario visual AICLE, formulas en LaTeX y ejemplos claros para comprender el contenido.</p>
+            <p class="scaffold-example">Ejemplo: \(f(x)=\sqrt{x-3}\Rightarrow x\ge 3\).</p>
+          </article>
+          <article class="scaffold-card">
+            <h3>Process scaffolding</h3>
+            <p>Comparativas guiadas y preguntas LOTS/HOTS para transformar informacion en razonamiento matematico.</p>
+            <p class="scaffold-example">Ejemplo: comparar \(a^x\) y \(\log_a(x)\) como funciones inversas.</p>
+          </article>
+          <article class="scaffold-card">
+            <h3>Output scaffolding</h3>
+            <p>Frases modelo para producir lenguaje academico en L2 durante explicaciones y justificaciones.</p>
+            <p class="scaffold-example">Sentence starter: <em>The domain is..., because...</em></p>
+          </article>
+        </div>
+        <p class="orientation-note">
+          Orientacion clave: <strong>fluency over accuracy</strong>. El objetivo es comunicar matematicamente con seguridad,
+          sin miedo al error linguistico.
+        </p>
+        <div class="back-top-wrap">
+          <a class="back-top-btn" href="#inicio">Volver al inicio</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="resumen" class="section section-alt">
+      <div class="container">
+        <h2>Tabla resumen comparativa</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>Expresion general</th>
+                <th>Dominio</th>
+                <th>Grafica</th>
+                <th>Clave</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>A trozos</td>
+                <td>\(f(x)=\begin{cases}...\end{cases}\)</td>
+                <td>Union de intervalos</td>
+                <td>Tramos separados</td>
+                <td>Puede tener discontinuidades</td>
+              </tr>
+              <tr>
+                <td>Valor absoluto</td>
+                <td>\(|x-a|+b\)</td>
+                <td>\(\mathbb{R}\)</td>
+                <td>Forma de V</td>
+                <td>Simetria respecto al vertice</td>
+              </tr>
+              <tr>
+                <td>Radical</td>
+                <td>\(\sqrt{x-a}+b\)</td>
+                <td>\(x\ge a\)</td>
+                <td>Curva creciente</td>
+                <td>Empieza en \((a,b)\)</td>
+              </tr>
+              <tr>
+                <td>Inversa</td>
+                <td>\(\dfrac{k}{x-a}+b\)</td>
+                <td>\(x\neq a\)</td>
+                <td>Hiperbola</td>
+                <td>Dos asintotas</td>
+              </tr>
+              <tr>
+                <td>Exponencial</td>
+                <td>\(a^x\)</td>
+                <td>\(\mathbb{R}\)</td>
+                <td>Crecimiento/decrecimiento rapido</td>
+                <td>Asintota \(y=0\)</td>
+              </tr>
+              <tr>
+                <td>Logaritmica</td>
+                <td>\(\log_a(x)\)</td>
+                <td>\(x&gt;0\)</td>
+                <td>Lenta y progresiva</td>
+                <td>Inversa de la exponencial</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="back-top-wrap">
+          <a class="back-top-btn" href="#inicio">Volver al inicio</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="actividad" class="section container">
+      <h2>Actividad interactiva: Identify the function</h2>
+      <p>
+        Lee cada pista y selecciona el tipo de funcion correcto. Recibiras retroalimentacion inmediata.
+        Despues, explica oralmente tu eleccion usando un sentence starter en ingles.
+      </p>
+
+      <div class="quiz" id="quiz">
+        <article class="quiz-card" data-correct="valor-absoluto">
+          <h3>Pregunta 1</h3>
+          <p>Su grafica tiene forma de V y puede escribirse como \(f(x)=|x-1|\).</p>
+          <div class="options">
+            <button type="button" data-answer="valor-absoluto">Valor absoluto</button>
+            <button type="button" data-answer="logaritmica">Logaritmica</button>
+            <button type="button" data-answer="inversa">Proporcionalidad inversa</button>
+          </div>
+          <p class="feedback" aria-live="polite"></p>
+        </article>
+
+        <article class="quiz-card" data-correct="radical">
+          <h3>Pregunta 2</h3>
+          <p>Su dominio es \(x\ge 4\) y la expresion es \(f(x)=\sqrt{x-4}\).</p>
+          <div class="options">
+            <button type="button" data-answer="radical">Radical</button>
+            <button type="button" data-answer="exponencial">Exponencial</button>
+            <button type="button" data-answer="trozos">A trozos</button>
+          </div>
+          <p class="feedback" aria-live="polite"></p>
+        </article>
+
+        <article class="quiz-card" data-correct="inversa">
+          <h3>Pregunta 3</h3>
+          <p>Tiene dos ramas y una asintota vertical en \(x=0\): \(f(x)=\dfrac{3}{x}\).</p>
+          <div class="options">
+            <button type="button" data-answer="logaritmica">Logaritmica</button>
+            <button type="button" data-answer="inversa">Proporcionalidad inversa</button>
+            <button type="button" data-answer="valor-absoluto">Valor absoluto</button>
+          </div>
+          <p class="feedback" aria-live="polite"></p>
+        </article>
+
+        <article class="quiz-card" data-correct="exponencial">
+          <h3>Pregunta 4</h3>
+          <p>La variable esta en el exponente: \(f(x)=3^x\).</p>
+          <div class="options">
+            <button type="button" data-answer="exponencial">Exponencial</button>
+            <button type="button" data-answer="trozos">A trozos</button>
+            <button type="button" data-answer="radical">Radical</button>
+          </div>
+          <p class="feedback" aria-live="polite"></p>
+        </article>
+
+        <article class="quiz-card" data-correct="logaritmica">
+          <h3>Pregunta 5</h3>
+          <p>Es la inversa de la exponencial y su dominio es \(x&gt;0\): \(f(x)=\log_2(x)\).</p>
+          <div class="options">
+            <button type="button" data-answer="logaritmica">Logaritmica</button>
+            <button type="button" data-answer="inversa">Proporcionalidad inversa</button>
+            <button type="button" data-answer="valor-absoluto">Valor absoluto</button>
+          </div>
+          <p class="feedback" aria-live="polite"></p>
+        </article>
+
+        <article class="quiz-card" data-correct="trozos">
+          <h3>Pregunta 6</h3>
+          <p>Usa reglas distintas segun intervalos de \(x\).</p>
+          <div class="options">
+            <button type="button" data-answer="trozos">A trozos</button>
+            <button type="button" data-answer="exponencial">Exponencial</button>
+            <button type="button" data-answer="radical">Radical</button>
+          </div>
+          <p class="feedback" aria-live="polite"></p>
+        </article>
+      </div>
+
+      <div class="result" id="quiz-result" aria-live="polite"></div>
+      <div class="review-box" id="review-box">
+        <h3>Mensaje final de repaso</h3>
+        <p>
+          Recuerda: para identificar funciones, observa siempre expresion, dominio, forma de la grafica y asintotas.
+          En CLIL language: <em>Look at the rule, the domain and the graph behavior.</em>
+        </p>
+      </div>
+
+      <div class="rubric-box" aria-label="Mini-rubrica AICLE para funciones elementales">
+        <h3>Mini-rubrica AICLE (uso en clase)</h3>
+        <p>
+          Puedes usar esta rubrica para coevaluacion, autoevaluacion o evaluacion docente.
+          Escala: 1 (Inicial), 2 (En progreso), 3 (Adecuado), 4 (Avanzado).
+        </p>
+        <div class="rubric-table-wrap">
+          <table class="rubric-table">
+            <thead>
+              <tr>
+                <th>Dimension (4Cs)</th>
+                <th>Nivel 1</th>
+                <th>Nivel 2</th>
+                <th>Nivel 3</th>
+                <th>Nivel 4</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Contenido / Content</strong></td>
+                <td>Reconoce pocas funciones y confunde propiedades.</td>
+                <td>Identifica algunas funciones con ayuda.</td>
+                <td>Identifica correctamente la mayoria y explica dominio/grafica.</td>
+                <td>Relaciona funciones, propiedades y ejemplos con precision.</td>
+              </tr>
+              <tr>
+                <td><strong>Comunicacion / Communication</strong></td>
+                <td>Usa vocabulario limitado y frases incompletas.</td>
+                <td>Usa vocabulario clave con apoyo visual o sentence starters.</td>
+                <td>Explica con vocabulario matematico y frases claras en L2.</td>
+                <td>Argumenta con fluidez y conecta ideas matematicas en L2.</td>
+              </tr>
+              <tr>
+                <td><strong>Cognicion / Cognition</strong></td>
+                <td>Se queda en tareas LOTS basicas (listar, nombrar).</td>
+                <td>Describe y compara de forma guiada.</td>
+                <td>Analiza y justifica respuestas con evidencias matematicas.</td>
+                <td>Evalua y crea explicaciones propias (HOTS) con rigor.</td>
+              </tr>
+              <tr>
+                <td><strong>Cultura / Culture</strong></td>
+                <td>No conecta las funciones con contextos reales.</td>
+                <td>Relaciona algun ejemplo cercano con ayuda.</td>
+                <td>Conecta funciones con situaciones reales del entorno.</td>
+                <td>Compara contextos locales y globales con mirada critica.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="rubric-interactive" id="rubric-interactive">
+          <h4>Version interactiva de la rubrica</h4>
+          <p>Selecciona un nivel por cada dimension y obtendras el perfil automaticamente.</p>
+
+          <div class="rubric-controls">
+            <label>
+              Content
+              <select data-rubric="content">
+                <option value="">Selecciona nivel</option>
+                <option value="1">1 - Inicial</option>
+                <option value="2">2 - En progreso</option>
+                <option value="3">3 - Adecuado</option>
+                <option value="4">4 - Avanzado</option>
+              </select>
+            </label>
+
+            <label>
+              Communication
+              <select data-rubric="communication">
+                <option value="">Selecciona nivel</option>
+                <option value="1">1 - Inicial</option>
+                <option value="2">2 - En progreso</option>
+                <option value="3">3 - Adecuado</option>
+                <option value="4">4 - Avanzado</option>
+              </select>
+            </label>
+
+            <label>
+              Cognition
+              <select data-rubric="cognition">
+                <option value="">Selecciona nivel</option>
+                <option value="1">1 - Inicial</option>
+                <option value="2">2 - En progreso</option>
+                <option value="3">3 - Adecuado</option>
+                <option value="4">4 - Avanzado</option>
+              </select>
+            </label>
+
+            <label>
+              Culture
+              <select data-rubric="culture">
+                <option value="">Selecciona nivel</option>
+                <option value="1">1 - Inicial</option>
+                <option value="2">2 - En progreso</option>
+                <option value="3">3 - Adecuado</option>
+                <option value="4">4 - Avanzado</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="rubric-output" id="rubric-output" aria-live="polite">
+            Completa las cuatro dimensiones para calcular el perfil AICLE.
+          </div>
+        </div>
+      </div>
+      <div class="back-top-wrap">
+        <a class="back-top-btn" href="#inicio">Volver al inicio</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Recurso educativo de Matematicas B - 4 de ESO con enfoque AICLE.</p>
+    </div>
+  </footer>
+
+  <script defer src="script.js"></script>
+</body>
+</html>
