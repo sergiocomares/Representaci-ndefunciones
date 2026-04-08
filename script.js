@@ -124,7 +124,7 @@ function createLinearChart(canvasId, datasets, bounds, withLegend) {
           type: 'linear',
           min: bounds.xMin,
           max: bounds.xMax,
-          ticks: { color: '#3b414a' },
+          ticks: { color: '#3b414a', stepSize: 1 },
           grid: { color: '#d7dce2' },
           border: { color: '#1f2429', width: 2 },
           title: {
@@ -137,7 +137,7 @@ function createLinearChart(canvasId, datasets, bounds, withLegend) {
         y: {
           min: bounds.yMin,
           max: bounds.yMax,
-          ticks: { color: '#3b414a' },
+          ticks: { color: '#3b414a', stepSize: 1 },
           grid: { color: '#d7dce2' },
           border: { color: '#1f2429', width: 2 },
           title: {
@@ -176,14 +176,81 @@ function initVocabulary() {
 
   const starterButtons = Array.from(document.querySelectorAll('#starter-chips button'));
   const output = document.getElementById('starter-output');
+  const feedback = document.getElementById('starter-feedback');
+  const checkBtn = document.getElementById('starter-check');
+  const clearBtn = document.getElementById('starter-clear');
+
+  const expectedStarters = [
+    'the function is increasing',
+    'the maximum point is',
+    'the graph cuts the x-axis at',
+    'this function is continuous/discontinuous'
+  ];
+
+  const mathWords = [
+    'increasing',
+    'decreasing',
+    'maximum',
+    'minimum',
+    'intercept',
+    'continuous',
+    'discontinuous',
+    'axis',
+    'domain',
+    'range',
+    'graph'
+  ];
+
+  function evaluateStarterSentence() {
+    const raw = output ? output.value : '';
+    const text = normalizeText(raw);
+    if (!text) {
+      setFeedback(feedback, false, 'Write a sentence first, then click Check sentence.');
+      return;
+    }
+
+    const wordCount = text.split(' ').filter(Boolean).length;
+    const hasStarter = expectedStarters.some((starter) => text.startsWith(starter));
+    const hasMathWord = mathWords.some((word) => text.includes(word));
+    const hasConnector = text.includes('because') || text.includes('therefore') || text.includes('so');
+
+    if (wordCount >= 8 && hasStarter && hasMathWord && hasConnector) {
+      setFeedback(feedback, true, 'Great sentence. You used a starter, math vocabulary and a clear justification.');
+      return;
+    }
+
+    const missing = [];
+    if (!hasStarter) missing.push('start with one sentence starter');
+    if (!hasMathWord) missing.push('include math vocabulary');
+    if (!hasConnector) missing.push('add because/therefore/so');
+    if (wordCount < 8) missing.push('write at least 8 words');
+
+    setFeedback(feedback, false, 'Almost there: ' + missing.join(', ') + '.');
+  }
+
   starterButtons.forEach((button) => {
     button.addEventListener('click', () => {
       if (!output) return;
       const chunk = button.dataset.starter || '';
       output.value = (output.value + ' ' + chunk).trim() + ' ';
       output.focus();
+      if (feedback) {
+        feedback.textContent = '';
+        feedback.classList.remove('ok', 'bad');
+      }
     });
   });
+
+  if (checkBtn) {
+    checkBtn.addEventListener('click', evaluateStarterSentence);
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      if (output) output.value = '';
+      setFeedback(feedback, true, 'Sentence cleared. Write a new one.');
+    });
+  }
 }
 
 function initObserveAndDescribe() {
