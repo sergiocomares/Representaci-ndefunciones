@@ -238,6 +238,35 @@ h1 {
   padding: 0.9rem;
 }
 
+.glossary-box {
+  margin-top: 0.85rem;
+}
+
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.glossary-grid article {
+  border: 1px solid #dce2ea;
+  border-left: 4px solid var(--brand);
+  border-radius: 10px;
+  background: #fafbfc;
+  padding: 0.62rem;
+}
+
+.glossary-grid h4 {
+  margin: 0 0 0.2rem;
+  font-family: "Source Sans 3", "Segoe UI", sans-serif;
+  font-size: 1rem;
+}
+
+.glossary-grid p {
+  margin: 0;
+  color: #2f343b;
+}
+
 .starters {
   display: flex;
   flex-wrap: wrap;
@@ -595,6 +624,10 @@ select:focus {
   color: #f1f1f1;
 }
 
+.footer p {
+  margin: 0.25rem 0;
+}
+
 .footer .action-link {
   margin-top: 0.4rem;
 }
@@ -616,6 +649,7 @@ select:focus {
 @media (max-width: 840px) {
   .panel-grid,
   .vocab-grid,
+  .glossary-grid,
   .real-grid,
   .quiz-wrap,
   .slider-grid,
