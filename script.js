@@ -997,7 +997,17 @@ function initSelfAssessment() {
   renderQuiz();
 }
 
+function initPdfExport() {
+  const exportBtn = document.getElementById('export-pdf');
+  if (!exportBtn) return;
+
+  exportBtn.addEventListener('click', () => {
+    window.print();
+  });
+}
+
 function boot() {
+  initPdfExport();
   if (typeof Chart === 'undefined') return false;
 
   Chart.register(emphasizedAxesPlugin);

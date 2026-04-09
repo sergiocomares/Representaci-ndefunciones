@@ -191,6 +191,12 @@ h1 {
   font-weight: 700;
 }
 
+button.action-link {
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
 .action-link:hover {
   background: var(--brand-dark);
 }
@@ -630,6 +636,75 @@ select:focus {
 
 .footer .action-link {
   margin-top: 0.4rem;
+}
+
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
+@media print {
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .hero,
+  .section-alt,
+  .starter-box,
+  .activity-card,
+  .panel,
+  .quiz-card,
+  .real-card,
+  .language-box,
+  .drop-card,
+  .chart-wrap {
+    box-shadow: none;
+    background: #ffffff;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-overlay,
+  .quick-nav,
+  .btn-row,
+  .back-top-wrap,
+  .no-print {
+    display: none !important;
+  }
+
+  .vocab-card {
+    page-break-inside: avoid;
+  }
+
+  .vocab-card .def {
+    opacity: 1 !important;
+    max-height: none !important;
+    overflow: visible;
+  }
+
+  .section,
+  .activity-card,
+  .panel,
+  .language-box,
+  .drop-card,
+  .real-card,
+  .quiz-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .footer {
+    color: #000000;
+    background: #ffffff;
+    border-top: 1px solid #d6dbe2;
+  }
+
+  .footer .action-link {
+    display: none;
+  }
 }
 
 @media (max-width: 1080px) {
